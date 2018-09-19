@@ -23,7 +23,15 @@ class Scraper
   end
 
   def self.scrape_profile_page(profile_url)
-
+    doc = get_page(index_url)
+    student = {
+      :twitter => doc.css("div.vitals-container div.social-icon-container")
+      :github =>
+      :blog =>
+      :profile_quote => doc.css("div.vitals-text-container div.profile-quote").text
+      :bio => doc.css("div.details-container div.bio-block details-block div.bio-content content-holder div.description-holder").text
+      
+    }
   end
 
 end
