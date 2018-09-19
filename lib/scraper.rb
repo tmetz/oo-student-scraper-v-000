@@ -11,12 +11,13 @@ class Scraper
   def self.scrape_index_page(index_url)
     doc = get_page(index_url)
     people = []
-    doc.css("div.roster-cards-container.student-card").each do |person|
+    doc.css("div.roster-cards-container").each do |person|
+      # student-card
       binding.pry
       person_hash = {
         :location => person.css("card-text-container.p").text,
         :name => person.css("card-text-container.h4").text,
-        :profile_url => person.css("a").text
+        :profile_url => person.css("a").attribute("src").value
       }
       people << person_hash
     end
