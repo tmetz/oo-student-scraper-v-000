@@ -15,8 +15,8 @@ class Scraper
       # student-card
       #binding.pry
       person_hash = {
-        :location => person.css("div.student-card div.card-text-container.p").text,
-        :name => person.css("div.student-card div card-text-container.h4").text,
+        :location => person.css("div.student-card div.card-text-container p").text,
+        :name => person.css("div.student-card div card-text-container h4").text,
         :profile_url => person.css("div.student-card a").attribute("href")
       }
       people << person_hash
