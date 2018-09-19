@@ -25,13 +25,20 @@ class Scraper
   def self.scrape_profile_page(profile_url)
     doc = get_page(index_url)
     student = {
-      :twitter => doc.css("div.vitals-container div.social-icon-container")
-      :github =>
-      :blog =>
       :profile_quote => doc.css("div.vitals-text-container div.profile-quote").text
       :bio => doc.css("div.details-container div.bio-block details-block div.bio-content content-holder div.description-holder").text
-      
     }
+    social_media = doc.css("div.vitals-container div.social-icon-container")
+    social_media.each do |website|
+      if website.css("a").attribute("href").text.include?("twitter")
+        student[twitter] = website.css("a").attribute("href").text
+      elsif website.css("a").attribute("href").text.include?("git")
+        student[github] = website.css("a").attribute("href").text
+      else
+        student[blog] = website.css("a").attribute("href").text
+      end
+    end
+    student
   end
 
 end
