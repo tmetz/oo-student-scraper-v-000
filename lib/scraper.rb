@@ -17,7 +17,7 @@ class Scraper
       person_hash = {
         :location => person.css("student-card.card-text-container.p").text,
         :name => person.css("student-card.card-text-container.h4").text,
-        :profile_url => person.css("student-card a").attribute("src").value
+        :profile_url => person.css("student-card a").text
       }
       people << person_hash
     end
