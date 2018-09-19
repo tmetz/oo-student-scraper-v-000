@@ -11,7 +11,6 @@ class Scraper
     doc = get_page(index_url)
     people = []
     doc.css("roster-cards-container.student-card").each do |person|
-      person_hash = {}
       person_hash = {
         :name => person.css("card-text-container.h4").text
         :location => person.css("card-text-container.p").text
@@ -22,8 +21,7 @@ class Scraper
   end
 
   def self.scrape_profile_page(profile_url)
-    
+
   end
 
 end
-
