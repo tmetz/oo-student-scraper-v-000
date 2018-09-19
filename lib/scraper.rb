@@ -13,7 +13,7 @@ class Scraper
     people = []
     doc.css("div.roster-cards-container").each do |person|
       # student-card
-      binding.pry
+      #binding.pry
       person_hash = {
         :location => person.css("student-card.card-text-container.p").text,
         :name => person.css("student-card.card-text-container.h4").text,
