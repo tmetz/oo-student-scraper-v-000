@@ -30,7 +30,7 @@ class Scraper
         "div.details-container p").text
     }
     social_media = doc.css("div.vitals-container div.social-icon-container")
-    social_media.css.("a").each do |website|
+    social_media.css("a").each do |website|
       if website.attribute("href").text.include?("twitter")
         student[:twitter] = website.attribute("href").text
       elsif website.attribute("href").text.include?("git")
