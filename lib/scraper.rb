@@ -23,7 +23,7 @@ class Scraper
   end
 
   def self.scrape_profile_page(profile_url)
-    doc = get_page(index_url)
+    doc = get_page(profile_url)
     student = {
       :profile_quote => doc.css("div.vitals-text-container div.profile-quote").text,
       :bio => doc.css(
