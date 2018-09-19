@@ -11,6 +11,7 @@ class Scraper
   def self.scrape_index_page(index_url)
     doc = get_page(index_url)
     people = []
+    binding.pry
     doc.css("roster-cards-container.student-card").each do |person|
       person_hash = {
         :location => person.css("card-text-container.p").text,
