@@ -12,8 +12,6 @@ class Scraper
     doc = get_page(index_url)
     people = []
     doc.css("div.roster-cards-container div.student-card").each do |person|
-      # student-card
-      #binding.pry
       person_hash = {
         :name => person.css("a h4").text,
         :location => person.css("a p").text,
