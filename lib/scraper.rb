@@ -27,9 +27,9 @@ class Scraper
     student = {
       :profile_quote => doc.css("div.vitals-text-container div.profile-quote").text,
       :bio => doc.css(
-        "div.details-container 
-        div.bio-block details-block 
-        div.bio-content content-holder 
+        "div.details-container
+        div.bio-block details-block
+        div.bio-content content-holder
         div.description-holder").text
     }
     social_media = doc.css("div.vitals-container div.social-icon-container")
