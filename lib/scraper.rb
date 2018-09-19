@@ -30,7 +30,7 @@ class Scraper
         "div.details-container
         div.bio-block details-block
         div.bio-content content-holder
-        div.description-holder").text
+        div.description-holder p").text
     }
     social_media = doc.css("div.vitals-container div.social-icon-container")
     social_media.each do |website|
